@@ -1,7 +1,7 @@
 import asyncio
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
-from selects import select_1, select_2, select_3, select_4
+from selects import select_1, select_2, select_3, select_4, select_5, select_6, select_7, select_8, select_9, select_10
 
 DATABASE_URL = "postgresql+asyncpg://postgres:mysecretpassword@localhost:5432/my_database"
 
@@ -28,5 +28,12 @@ async def run_queries():
         print("\nЗапит 4: Середній бал на потоці")
         result = await select_4(session)
         print(result)
+
+        print(await select_5(session))
+        print(await select_6(session))
+        print(await select_7(session))
+        print(await select_8(session))
+        print(await select_9(session))
+        print(await select_10(session))
 
 asyncio.run(run_queries())
